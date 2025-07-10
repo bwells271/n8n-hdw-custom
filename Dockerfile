@@ -1,7 +1,11 @@
+
 FROM n8nio/n8n
 
-# Install the HDW node from npm
+# Set working dir for clarity
+WORKDIR /home/node/.n8n
+
+# Install HDW node into .n8n folder (where N8N_CUSTOM_EXTENSIONS points)
 RUN npm install n8n-nodes-hdw
 
-# Let n8n know where custom nodes are installed
+# Make sure custom extensions env is set
 ENV N8N_CUSTOM_EXTENSIONS=/home/node/.n8n
